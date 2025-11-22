@@ -3,252 +3,230 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scott's Transports</title>
+<title>Scott's Transport</title>
 
 <style>
 /* RESET */
 * { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
-body { background:#0b0b0b; color:#fff; overflow-x:hidden; line-height:1.7; }
-
-/* ANIMATIONS */
-.fade-in {
-    opacity:0;
-    transform: translateY(20px);
-    animation: fadeIn 1s ease forwards;
-}
-@keyframes fadeIn {
-    to { opacity:1; transform: translateY(0); }
-}
+body { background:#0d0d0d; color:#fff; overflow-x:hidden; line-height:1.6; }
 
 /* NAVBAR */
 header {
-    width:100%;
-    padding:20px 50px;
-    background:rgba(0,0,0,0.55);
-    position:fixed;
-    top:0;
-    z-index:20;
-    backdrop-filter: blur(12px);
-    border-bottom:1px solid rgba(255,255,255,0.08);
+    width:100%; padding:20px 50px;
+    background:rgba(0,0,0,0.65); backdrop-filter:blur(10px);
+    position:fixed; top:0; z-index:10; border-bottom:1px solid rgba(255,255,255,0.1);
 }
-nav {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-.logo {
-    font-size:26px;
-    font-weight:bold;
-    color:#00aaff;
-    letter-spacing:1px;
-}
-.nav-links {
-    list-style:none;
-    display:flex;
-    gap:30px;
-}
+nav { display:flex; justify-content:space-between; align-items:center; }
+.logo { font-size:26px; font-weight:bold; color:#00aaff; letter-spacing:1px; }
+.nav-links { list-style:none; display:flex; gap:30px; }
 .nav-links a {
-    color:#fff;
-    text-decoration:none;
-    font-weight:bold;
-    font-size:16px;
-    transition:0.3s;
+    color:#fff; text-decoration:none; font-weight:bold;
+    transition:0.3s ease; padding:5px 0; position:relative;
 }
-.nav-links a:hover {
-    color:#00aaff;
-    text-shadow:0 0 10px #00aaff;
+.nav-links a::after {
+    content:""; position:absolute; width:0%; height:3px; bottom:-3px; left:0;
+    background:#00aaff; transition:0.3s;
 }
+.nav-links a:hover::after { width:100%; }
 
-/* HERO */
+/* HERO SECTION */
 .hero {
-    height:95vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+    height:90vh; padding-top:120px;
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
     text-align:center;
-    background:url("https://i.postimg.cc/Qd6HNXPf/eut2-hq-6907ecf6.png") center/cover no-repeat;
-    border-bottom:2px solid rgba(255,255,255,0.1);
+    background:url("https://i.ibb.co/tTmW691/hero.png") center/cover no-repeat;
 }
 .hero h1 {
-    font-size:70px;
-    color:#00aaff;
-    text-shadow:0 0 15px rgba(0,170,255,0.9);
+    font-size:60px; color:#00aaff;
+    text-shadow:0 0 20px rgba(0,170,255,0.6);
 }
 .hero p {
-    font-size:22px;
-    max-width:700px;
-    margin-top:15px;
-    color:#e9e9e9;
+    margin-top:18px; font-size:22px; max-width:700px;
 }
 
-/* SECTIONS */
-section {
-    padding:110px 50px;
-}
+/* UNIVERSAL SECTIONS */
+section { padding:100px 50px; }
 section h2 {
-    font-size:40px;
-    color:#00aaff;
-    text-align:center;
-    margin-bottom:40px;
-    text-shadow:0 0 12px rgba(0,170,255,0.5);
+    font-size:40px; color:#00aaff; text-align:center;
+    margin-bottom:40px; text-shadow:0 0 10px rgba(0,170,255,0.4);
 }
 
 /* ABOUT */
 .about p {
-    max-width:850px;
-    margin:0 auto;
-    text-align:center;
-    font-size:20px;
-    opacity:0.9;
+    max-width:900px; margin:0 auto; text-align:center;
+    font-size:20px; opacity:0.9;
 }
 
 /* FLEET */
 .fleet .truck-gallery {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:50px;
+    display:flex; justify-content:center; flex-wrap:wrap; gap:40px;
 }
 .truck-card {
-    width:100%;
-    max-width:330px;
-    background:linear-gradient(145deg,#111,#1b1b1b);
-    border-radius:18px;
-    padding:20px;
-    text-align:center;
-    box-shadow:0 0 12px rgba(0,170,255,0.15);
-    transition:0.45s ease;
-    border:1px solid rgba(255,255,255,0.05);
+    width:100%; max-width:300px;
+    background:linear-gradient(145deg,#111,#1c1c1c);
+    border-radius:15px; padding:20px; text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,0.4); transition:0.4s ease;
 }
 .truck-card:hover {
-    transform:scale(1.07);
-    box-shadow:0 0 25px rgba(0,170,255,0.6), 0 0 55px rgba(0,170,255,0.3);
+    transform:scale(1.07); box-shadow:0 15px 35px rgba(0,0,0,0.6);
 }
 .truck-card img {
-    width:100%;
-    border-radius:12px;
+    width:100%; height:auto; border-radius:12px;
+    border:1px solid rgba(255,255,255,0.1);
 }
 .truck-card h3 {
-    margin-top:18px;
-    font-size:22px;
-    color:#00aaff;
+    margin-top:15px; font-size:20px; color:#00aaff;
+}
+
+/* APPLY SECTION */
+.apply-info {
+    text-align:center; max-width:800px; margin:0 auto 40px auto;
+    font-size:20px;
+}
+
+.apply-buttons {
+    display:flex; justify-content:center; gap:30px; flex-wrap:wrap;
+}
+
+.apply-button {
+    display:inline-block;
+    padding:15px 35px;
+    background:#00aaff;
+    color:#fff;
+    border-radius:14px;
+    font-size:18px;
+    text-decoration:none;
+    font-weight:bold;
+    box-shadow:0 5px 20px rgba(0,170,255,0.3);
+    transition:0.3s ease;
+}
+.apply-button:hover {
+    background:#0088cc;
+    transform:translateY(-4px);
+    box-shadow:0 10px 30px rgba(0,170,255,0.5);
+}
+
+.discord-required {
+    margin-top:20px;
+    font-size:18px;
+    color:#ff5555;
+    font-weight:bold;
 }
 
 /* CONTACT */
-.contact {
-    text-align:center;
+.contact { text-align:center; }
+.contact p { margin:15px 0; font-size:20px; }
+.contact .button {
+    display:inline-block; background:#5865F2; color:#fff;
+    padding:15px 30px; border-radius:12px; text-decoration:none; font-weight:bold;
+    transition:0.3s ease;
 }
-.contact p {
-    font-size:22px;
-    margin-top:15px;
-    font-weight:600;
-}
-.contact a.button {
-    display:inline-block;
-    background:#5865F2;
-    padding:16px 35px;
-    color:#fff;
-    border-radius:14px;
-    text-decoration:none;
-    font-size:20px;
-    font-weight:bold;
-    margin-top:10px;
-    transition:0.3s;
-    box-shadow:0 0 12px rgba(88,101,242,0.4);
-}
-.contact a.button:hover {
-    transform:translateY(-4px);
-    background:#4752c4;
-    box-shadow:0 0 20px rgba(88,101,242,0.9);
+.contact .button:hover {
+    background:#4752c4; transform:translateY(-4px);
 }
 
 /* FOOTER */
 footer {
-    background:#000;
-    padding:25px;
-    text-align:center;
-    margin-top:50px;
-    font-size:16px;
-    letter-spacing:0.5px;
+    background:#000; text-align:center; padding:25px;
+    border-top:1px solid rgba(255,255,255,0.1);
 }
 
-/* MOBILE */
-@media(max-width:768px){
-    .hero h1 { font-size:45px; }
-    .hero p { font-size:17px; }
-    .truck-card { max-width:90%; }
-    section { padding:70px 25px; }
+/* RESPONSIVE */
+@media(max-width:768px) {
+    .hero h1 { font-size:40px; }
+    .hero p { font-size:18px; }
+    .apply-buttons a { width:90%; text-align:center; }
 }
 </style>
 </head>
 <body>
 
-<header class="fade-in">
+<header>
     <nav>
-        <div class="logo">Scott's Transports</div>
+        <div class="logo">Scott's Transport</div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#fleet">Fleet</a></li>
+            <li><a href="#apply">Apply</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 </header>
 
 <!-- HERO -->
-<section id="home" class="hero fade-in">
-    <h1>Scott's Transports</h1>
+<section id="home" class="hero">
+    <h1>Scott's Transport</h1>
     <p>Delivering With Pride. Driving With Passion. Join us on the road to excellence!</p>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="about fade-in">
+<section id="about" class="about">
     <h2>About Us</h2>
-    <p>Scott's Transports is a dedicated Virtual Trucking Company focused on professionalism, community, and stunning convoys. Our goal is to provide the best virtual trucking experience with a passionate team and strong community values.</p>
+    <p>
+        Scott's Transport is a dedicated Virtual Trucking Company focused on professionalism,
+        community, and high-quality convoys.  
+        Our goal is simple: provide the best virtual trucking experience possible.
+    </p>
 </section>
 
 <!-- FLEET -->
-<section id="fleet" class="fleet fade-in">
+<section id="fleet" class="fleet">
     <h2>Our Fleet</h2>
 
     <div class="truck-gallery">
         <div class="truck-card">
-            <img src="https://i.postimg.cc/NF7j3YmT/eut2-hq-68feee0e.png" alt="Scania R730">
+            <img src="https://i.ibb.co/XZwRbqpM/Truck2.png" alt="Scania R730">
             <h3>Scania R730</h3>
         </div>
 
         <div class="truck-card">
-            <img src="https://i.postimg.cc/zDnvbwM4/eut2-hq-68ebd058.png" alt="Scania S520">
+            <img src="https://i.ibb.co/SXg8pRH2/Truck4.png" alt="Scania S520">
             <h3>Scania S520</h3>
         </div>
 
         <div class="truck-card">
-            <img src="https://i.postimg.cc/XvpXpR6S/ets2-20251025-011128-00.png" alt="Scania S560 Timber">
+            <img src="https://i.ibb.co/czsSvhg/Truck3.png" alt="Scania S580+">
             <h3>Scania S560 Timber Service</h3>
         </div>
 
         <div class="truck-card">
-            <img src="https://i.postimg.cc/Qd6HNXPf/eut2-hq-6907ecf6.png" alt="Volvo FH5">
+            <img src="https://i.ibb.co/gbxNk7JF/Truck1.png" alt="Volvo FH5">
             <h3>Volvo FH5 Globetrotter</h3>
         </div>
 
         <div class="truck-card">
-            <img src="https://i.postimg.cc/hvbtkgT1/eut2-hq-68fe9e82.png" alt="Scania S580">
+            <img src="https://i.ibb.co/j9Ryd61X/Truck5.png" alt="Scania S580">
             <h3>Scania S580</h3>
         </div>
     </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="contact fade-in">
-    <h2>Contact Us</h2>
+<!-- APPLY -->
+<section id="apply">
+    <h2>Apply to Join</h2>
 
+    <p class="apply-info">
+        Ready to start your journey with Scott's Transport?<br>
+        Apply on Trucky or TrucksBook — but you MUST also be in our Discord to be accepted.
+    </p>
+
+    <div class="apply-buttons">
+        <a class="apply-button" href="https://hub.truckyapp.com/company/33844" target="_blank">Apply on Trucky</a>
+        <a class="apply-button" href="https://trucksbook.eu/company/215165" target="_blank">Apply on TrucksBook</a>
+        <a class="apply-button" href="https://discord.gg/vTJhwhSs8Z" target="_blank">Join Discord (Required)</a>
+    </div>
+
+    <p class="discord-required">⚠ You MUST join our Discord before we can accept your application.</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+    <h2>Contact Us</h2>
     <p>Email:</p>
     <a href="mailto:ifruitapp666@outlook.com" class="button">Send Email</a>
-
     <p>Discord:</p>
-    <a href="https://discord.gg/vTJhwhSs8Z" target="_blank" class="button">Join Our Discord</a>
+    <a href="https://discord.gg/vTJhwhSs8Z" class="button" target="_blank">Join Our Discord</a>
 </section>
 
 <footer>
@@ -257,7 +235,3 @@ footer {
 
 </body>
 </html>
-
-
-
-
