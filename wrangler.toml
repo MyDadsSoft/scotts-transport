@@ -1,0 +1,9 @@
+name = "scotts-transport"  # Name of your project
+type = "javascript"  # "javascript" is fine even for static assets
+
+account_id = "your-account-id"  # You’ll get this from your Cloudflare account
+workers_dev = true  # Set to true if you're testing in dev environment (you can later set to false for production)
+compatibility_date = "2025-11-22"  # The date you're deploying
+
+[build]
+  directory = "."  # Points to the current directory (root of your project, where index.html is)
