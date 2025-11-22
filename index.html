@@ -5,24 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scott's Transport</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
 </head>
-
 <body>
 
 <header>
     <nav>
-        <div class="logo">
-            <a href="#home">Scott's Transport</a>
-        </div>
+        <div class="logo">Scott's Transport</div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
+            <li><a href="#fleet">Fleet</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -32,59 +24,64 @@
 <section id="home" class="hero">
     <div class="hero-content">
         <h1>Welcome to Scott's Transport</h1>
-        <p>Your trusted VTC transport provider</p>
-        <a href="#services" class="hero-button">Our Services</a>
+        <p>Delivering With Pride. Driving With Passion.</p>
     </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="about">
-    <div class="container">
-        <h2>About Us</h2>
-        <p>
-            Scott's Transport is a professional VTC dedicated to reliable logistics, realistic driving,
-            and an amazing community. Our drivers are committed to delivering excellence across Europe.
-        </p>
-    </div>
+    <h2>About Our VTC</h2>
+    <p>We are a dedicated Virtual Trucking Company focused on professionalism, community, and stunning convoys. Join us on the road and be part of something awesome.</p>
 </section>
 
-<!-- SERVICES -->
-<section id="services" class="services">
-    <div class="container">
-        <h2>Our Services</h2>
+<!-- FLEET (TRUCK GALLERY WITH PARALLAX) -->
+<section id="fleet" class="fleet">
+    <h2>Our Fleet</h2>
 
-        <div class="service-grid">
-            <div class="service-card">
-                <h3>Freight Delivery</h3>
-                <p>Fast, reliable cargo hauling across ETS2.</p>
-            </div>
+    <div class="truck-gallery">
 
-            <div class="service-card">
-                <h3>Convoys</h3>
-                <p>Weekly company convoys with full support vehicles.</p>
-            </div>
-
-            <div class="service-card">
-                <h3>Driver Community</h3>
-                <p>A friendly, active VTC environment with events & tracking.</p>
-            </div>
+        <!-- TRUCK CARD 1 -->
+        <div class="truck-card" data-speed="-2">
+            <img src="https://cdn.discordapp.com/attachments/1432019224288821389/1432217499939897364/eut2_hq_68feee0e.png?ex=692286fd&is=6921357d&hm=56298d7d92e3455634e39aba570f9f5305d1bf3ac4fb451b3d87e64a4c57068f&" alt="Truck 1">
+            <h3>Scania R730</h3>
         </div>
+
+        <!-- TRUCK CARD 2 -->
+        <div class="truck-card" data-speed="2">
+            <img src="https://cdn.discordapp.com/attachments/1432019224288821389/1432217792144347156/eut2_hq_68ebd058.png?ex=69228742&is=692135c2&hm=2180bf22b193a756efca323a826eaccd67d0e084ffb1e34a0e1337b7ca9cd856&" alt="Truck 2">
+            <h3>Scania S520</h3>
+        </div>
+
+        <!-- TRUCK CARD 3 -->
+        <div class="truck-card" data-speed="-3">
+            <img src="https://cdn.discordapp.com/attachments/1432019224288821389/1432218174656352417/eut2_hq_68fe9e82.png?ex=6922879e&is=6921361e&hm=3f64a33d1cd93793a67b8549419126651eca966fd0266b586db35d1285aa3037&" alt="Truck 3">
+            <h3>Scania S580+</h3>
+        </div>
+
     </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="contact">
-    <div class="container">
-        <h2>Contact Us</h2>
-        <p>Want to join the VTC or ask a question?</p>
-        <a href="https://discord.gg/vTJhwhSs8Z" target="_blank" class="contact-btn">Join Our Discord</a>
-    </div>
+    <h2>Contact Us</h2>
+    <p>Email: <strong>ifruitapp666@outlook.com</strong></p>
+    <p>Discord: <strong>https://discord.gg/vTJhwhSs8Z</strong></p>
 </section>
 
-<!-- FOOTER -->
 <footer>
-    <p>&copy; 2025 Scott's Transport VTC. All rights reserved.</p>
+    <p>© 2025 Scott's Transport VTC. All rights reserved.</p>
 </footer>
+
+<script>
+// SMOOTH PARALLAX SCROLL FOR TRUCK IMAGES
+document.addEventListener("scroll", () => {
+    document.querySelectorAll(".truck-card").forEach(card => {
+        let speed = card.getAttribute("data-speed");
+        let y = window.scrollY * (speed / 100);
+        card.style.transform = `translateX(${y}px)`;
+    });
+});
+</script>
 
 </body>
 </html>
