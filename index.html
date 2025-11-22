@@ -3,93 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Scott's Transport - Reliable and Professional Transport Services">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Scott's Transport</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css"> <!-- Link to external CSS -->
+    <style>
+        /* CSS will be in a style block or external file */
+    </style>
 </head>
 <body>
-    <!-- Header -->
+
+    <!-- Navigation Bar -->
     <header>
-        <div class="container">
+        <nav>
             <div class="logo">
-                <img src="assets/logo.png" alt="Scott's Transport Logo">
+                <a href="#">Scott's Transport</a>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
+    <section class="hero">
+        <div class="hero-content">
             <h1>Welcome to Scott's Transport</h1>
-            <p>Reliable, fast, and professional transport services for all your logistics needs.</p>
-            <a href="#contact" class="cta-button">Get a Quote</a>
+            <p>Your trusted transport service provider</p>
         </div>
     </section>
 
-    <!-- About Us Section -->
-    <section id="about" class="about">
+    <!-- About Section -->
+    <section class="about">
         <div class="container">
-            <h2>About Scott's Transport</h2>
-            <p>At Scott's Transport, we’ve been providing top-tier logistics and transportation solutions for over 20 years. Whether you need freight delivery, warehousing, or long-haul services, our dedicated team is here to meet your needs with precision and care.</p>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="service-item">
-                <h3>Freight Delivery</h3>
-                <p>We specialize in both local and long-distance freight, ensuring safe and timely delivery of your goods.</p>
-            </div>
-            <div class="service-item">
-                <h3>Logistics Management</h3>
-                <p>Efficient, cost-effective logistics planning tailored to your business needs.</p>
-            </div>
-            <div class="service-item">
-                <h3>Warehousing</h3>
-                <p>Secure storage solutions with fast inventory management to keep your supply chain running smoothly.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <form action="https://formspree.io/f/maykwkbn" method="POST">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Message</label>
-                <textarea id="message" name="message" required></textarea>
-
-                <button type="submit" class="cta-button">Send Message</button>
-            </form>
+            <h2>About Us</h2>
+            <p>We are a professional transport service company, providing reliable and fast logistics solutions to meet your needs. With years of experience, we ensure your shipments are handled with care and delivered on time.</p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>&copy; 2025 Scott's Transport. All rights reserved.</p>
-            <ul class="social-links">
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">LinkedIn</a></li>
-            </ul>
-        </div>
+        <p>&copy; 2025 Scott's Transport. All rights reserved.</p>
     </footer>
+
 </body>
 </html>
