@@ -8,17 +8,17 @@
 <style>
 /* RESET */
 * { margin:0; padding:0; box-sizing:border-box; font-family: 'Arial', sans-serif; }
-body { background:#121212; color:#e0e0e0; line-height:1.6; overflow-x:hidden; }
+body { background:#101010; color:#e0e0e0; line-height:1.6; overflow-x:hidden; }
 
 /* NAVBAR */
 header {
     width:100%; padding:20px 50px;
-    background:#1c1c1c; position:fixed; top:0; z-index:10;
-    border-bottom:1px solid #2c2c2c;
+    background:#1a1a1a; position:fixed; top:0; z-index:10;
+    border-bottom:1px solid #2a2a2a;
 }
 nav { display:flex; justify-content:space-between; align-items:center; }
-.logo { font-size:26px; font-weight:bold; color:#00aaff; }
-.nav-links { list-style:none; display:flex; gap:30px; }
+.logo { font-size:28px; font-weight:bold; color:#00aaff; }
+.nav-links { list-style:none; display:flex; gap:25px; }
 .nav-links a {
     color:#e0e0e0; text-decoration:none; font-weight:600;
     padding:5px 0; position:relative; transition:0.3s;
@@ -29,36 +29,42 @@ nav { display:flex; justify-content:space-between; align-items:center; }
 }
 .nav-links a:hover::after { width:100%; }
 
-/* HERO */
+/* HERO SECTION */
 .hero {
-    height:90vh; padding-top:100px;
+    height:90vh; padding-top:120px;
     display:flex; flex-direction:column; justify-content:center; align-items:center;
     text-align:center;
-    background:url("https://i.postimg.cc/Qd6HNXPf/eut2-hq-6907ecf6.png") center/cover no-repeat;
+    background:linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.85)), 
+               url("https://i.postimg.cc/Qd6HNXPf/eut2-hq-6907ecf6.png") center/cover no-repeat;
 }
-.hero h1 { font-size:56px; color:#00aaff; margin-bottom:15px; }
-.hero p { font-size:20px; max-width:700px; color:#e0e0e0; }
+.hero h1 { font-size:60px; color:#00aaff; margin-bottom:20px; }
+.hero p { font-size:22px; max-width:700px; color:#fff; margin-bottom:30px; }
+.hero .cta-button {
+    background:#00aaff; color:#fff; padding:15px 40px; border-radius:12px;
+    text-decoration:none; font-weight:bold; font-size:18px; transition:0.3s;
+}
+.hero .cta-button:hover { background:#0088cc; transform:translateY(-3px); }
 
-/* SECTION STYLING */
+/* SECTION HEADINGS */
 section { padding:100px 50px; }
-section h2 { font-size:36px; text-align:center; color:#00aaff; margin-bottom:40px; }
+section h2 { font-size:42px; text-align:center; color:#00aaff; margin-bottom:50px; }
 
 /* ABOUT */
-.about p { max-width:900px; margin:0 auto; text-align:center; font-size:18px; }
+.about p { max-width:900px; margin:0 auto; text-align:center; font-size:18px; color:#dcdcdc; }
 
 /* FLEET */
 .fleet .truck-gallery {
     display:flex; flex-wrap:wrap; gap:30px; justify-content:center;
 }
 .truck-card {
-    width:100%; max-width:280px;
+    width:100%; max-width:300px;
     background:#1e1e1e; padding:20px; border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.3); text-align:center;
+    box-shadow:0 6px 20px rgba(0,0,0,0.4); text-align:center;
     transition:0.3s;
 }
-.truck-card:hover { transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.4); }
+.truck-card:hover { transform:translateY(-5px); box-shadow:0 10px 30px rgba(0,0,0,0.5); }
 .truck-card img { width:100%; border-radius:8px; margin-bottom:15px; }
-.truck-card h3 { font-size:18px; color:#00aaff; }
+.truck-card h3 { font-size:20px; color:#00aaff; }
 
 /* APPLY */
 .apply-info { text-align:center; max-width:750px; margin:0 auto 30px; font-size:18px; }
@@ -69,7 +75,7 @@ section h2 { font-size:36px; text-align:center; color:#00aaff; margin-bottom:40p
 }
 .apply-button:hover { background:#0088cc; transform:translateY(-3px); }
 
-/* DISCORD NOTE */
+/* DISCORD ALERT */
 .discord-required { text-align:center; color:#ff5555; font-weight:bold; margin-top:15px; }
 
 /* CONTACT */
@@ -82,12 +88,12 @@ section h2 { font-size:36px; text-align:center; color:#00aaff; margin-bottom:40p
 .contact .button:hover { background:#4752c4; transform:translateY(-3px); }
 
 /* FOOTER */
-footer { text-align:center; padding:25px; background:#1c1c1c; border-top:1px solid #2c2c2c; color:#aaa; }
+footer { text-align:center; padding:25px; background:#1a1a1a; border-top:1px solid #2a2a2a; color:#aaa; }
 
 /* RESPONSIVE */
 @media(max-width:768px) {
-    .hero h1 { font-size:36px; }
-    .hero p { font-size:16px; }
+    .hero h1 { font-size:42px; }
+    .hero p { font-size:18px; }
     .apply-buttons a { width:90%; text-align:center; }
 }
 </style>
@@ -111,16 +117,16 @@ footer { text-align:center; padding:25px; background:#1c1c1c; border-top:1px sol
 <!-- HERO -->
 <section id="home" class="hero">
     <h1>Scott's Transport</h1>
-    <p>Delivering With Pride. Driving With Passion. Join us on the road to excellence!</p>
+    <p>Delivering Excellence. Driving Passion. Join our growing VTC family today!</p>
+    <a href="#apply" class="cta-button">Apply Now</a>
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="about">
-    <h2>About Us</h2>
+    <h2>About Scott's Transport</h2>
     <p>
-        Scott's Transport is a dedicated Virtual Trucking Company focused on professionalism,
-        community, and high-quality convoys.
-        Our goal is to provide the best virtual trucking experience possible.
+        Scott's Transport is a professional Virtual Trucking Company dedicated to community, quality, and realistic virtual trucking experiences.
+        We focus on teamwork, professionalism, and fun convoys for all our drivers.
     </p>
 </section>
 
@@ -142,7 +148,7 @@ footer { text-align:center; padding:25px; background:#1c1c1c; border-top:1px sol
         </div>
         <div class="truck-card">
             <img src="https://i.ibb.co/gbxNk7JF/Truck1.png" alt="Volvo FH5">
-            <h3>Volvo FH5</h3>
+            <h3>Volvo FH5 Globetrotter</h3>
         </div>
         <div class="truck-card">
             <img src="https://i.ibb.co/j9Ryd61X/Truck5.png" alt="Scania S580">
@@ -153,7 +159,7 @@ footer { text-align:center; padding:25px; background:#1c1c1c; border-top:1px sol
 
 <!-- APPLY -->
 <section id="apply">
-    <h2>Apply to Join</h2>
+    <h2>Join Scott's Transport</h2>
     <p class="apply-info">
         Ready to start your journey with Scott's Transport?<br>
         Apply on Trucky or TrucksBook — but you MUST also be in our Discord to be accepted.
