@@ -55,10 +55,11 @@ nav {
 /* HERO */
 .hero {
     height: 100vh;
-    background: url("https://cdn.discordapp.com/attachments/1441809208214556672/1441809208587587714/image.png?ex=692324f6&is=6921d376&hm=6e5113e3ccec5dc58ec23907eac4f48cf4fbe173d25b9e74e446fe6dac872818&") center/cover no-repeat;
+    background: url("https://cdn.discordapp.com/attachments/1441809208214556672/1441809208587587714/image.png?ex=692324f6&is=6921d376&hm=6e5113e3ccec5dc58ec23907eac4f48cf4fbe173d25b9e74e446fe6dac872818&") center top/contain no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #0e0e0e; /* fallback color */
 }
 
 .hero-content {
@@ -134,6 +135,16 @@ nav {
     text-align: center;
 }
 
+.contact a {
+    color: #00aaff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
 /* FOOTER */
 footer {
     padding: 20px;
@@ -179,5 +190,8 @@ footer {
 @media (max-width: 480px) {
     .truck-card {
         max-width: 90%; /* almost full width on mobile */
+    }
+    .hero {
+        background-size: 70% auto; /* scale down logo for mobile */
     }
 }
