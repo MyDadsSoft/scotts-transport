@@ -3,50 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Scott's Transport</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to external CSS -->
+    <link rel="stylesheet" href="style.css">
     <style>
-        /* CSS will be in a style block or external file */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
+
 <body>
 
-    <!-- Navigation Bar -->
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="#">Scott's Transport</a>
+<header>
+    <nav>
+        <div class="logo">
+            <a href="#home">Scott's Transport</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>Welcome to Scott's Transport</h1>
+        <p>Your trusted VTC transport provider</p>
+        <a href="#services" class="hero-button">Our Services</a>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+    <div class="container">
+        <h2>About Us</h2>
+        <p>
+            Scott's Transport is a professional VTC dedicated to reliable logistics, realistic driving,
+            and an amazing community. Our drivers are committed to delivering excellence across Europe.
+        </p>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services">
+    <div class="container">
+        <h2>Our Services</h2>
+
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>Freight Delivery</h3>
+                <p>Fast, reliable cargo hauling across ETS2.</p>
             </div>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Welcome to Scott's Transport</h1>
-            <p>Your trusted transport service provider</p>
+            <div class="service-card">
+                <h3>Convoys</h3>
+                <p>Weekly company convoys with full support vehicles.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Driver Community</h3>
+                <p>A friendly, active VTC environment with events & tracking.</p>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- About Section -->
-    <section class="about">
-        <div class="container">
-            <h2>About Us</h2>
-            <p>We are a professional transport service company, providing reliable and fast logistics solutions to meet your needs. With years of experience, we ensure your shipments are handled with care and delivered on time.</p>
-        </div>
-    </section>
+<!-- CONTACT -->
+<section id="contact" class="contact">
+    <div class="container">
+        <h2>Contact Us</h2>
+        <p>Want to join the VTC or ask a question?</p>
+        <a href="https://discord.gg/vTJhwhSs8Z" target="_blank" class="contact-btn">Join Our Discord</a>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Scott's Transport. All rights reserved.</p>
-    </footer>
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2025 Scott's Transport VTC. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
