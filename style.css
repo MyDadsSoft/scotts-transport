@@ -98,18 +98,20 @@ nav {
 .truck-gallery {
     margin-top: 40px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center; /* center cards */
     flex-wrap: wrap;
     gap: 40px;
 }
 
 .truck-card {
-    width: 300px;
+    width: 100%; /* make cards responsive */
+    max-width: 300px; /* keep them at a reasonable size */
     background: #1a1a1a;
     padding: 20px;
     border-radius: 12px;
     transition: 0.3s;
     position: relative;
+    text-align: center;
 }
 
 .truck-card:hover {
@@ -117,7 +119,8 @@ nav {
 }
 
 .truck-card img {
-    width: 100%;
+    width: 100%;   /* make images fit card */
+    height: auto;  /* keep aspect ratio */
     border-radius: 10px;
 }
 
@@ -137,4 +140,44 @@ footer {
     background: #000;
     text-align: center;
     margin-top: 50px;
+}
+
+/* RESPONSIVE MEDIA QUERIES */
+@media (max-width: 1024px) {
+    .hero h1 {
+        font-size: 40px;
+    }
+    .hero p {
+        font-size: 18px;
+    }
+    .about {
+        padding: 80px 30px;
+    }
+    .fleet {
+        padding: 80px 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 15px;
+    }
+    .hero h1 {
+        font-size: 32px;
+    }
+    .hero p {
+        font-size: 16px;
+    }
+    .about, .fleet, .contact {
+        padding: 60px 20px;
+    }
+    .truck-gallery {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .truck-card {
+        max-width: 90%; /* almost full width on mobile */
+    }
 }
