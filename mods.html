@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scott's Transport | Mods</title>
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Arial',sans-serif; }
+body { background:#101010; color:#e0e0e0; line-height:1.6; }
+
+header {
+  width:100%; padding:20px 50px;
+  background:#1a1a1a; position:fixed; top:0;
+  border-bottom:1px solid #2a2a2a; z-index:10;
+}
+nav { display:flex; justify-content:space-between; align-items:center; }
+.logo { font-size:28px; color:#00aaff; font-weight:bold; }
+.nav-links { display:flex; gap:25px; list-style:none; }
+.nav-links a {
+  color:#e0e0e0; text-decoration:none; font-weight:600; position:relative;
+}
+.nav-links a::after {
+  content:""; position:absolute; width:0%; height:2px; bottom:-3px; left:0;
+  background:#00aaff; transition:0.3s;
+}
+.nav-links a:hover::after { width:100%; }
+
+/* HEADER TITLE */
+.page-header {
+  padding-top:140px;
+  text-align:center;
+  padding-bottom:40px;
+}
+.page-header h1 { font-size:60px; color:#00aaff; }
+.page-header p { font-size:20px; color:#ccc; }
+
+/* MODS GRID */
+.mod-section { padding:50px 50px; }
+.mod-grid {
+  display:flex; flex-wrap:wrap; justify-content:center; gap:35px;
+}
+.mod-card {
+  width:100%; max-width:330px; background:#1e1e1e;
+  padding:25px; border-radius:12px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.4);
+  text-align:center; transition:0.3s;
+}
+.mod-card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+.mod-card img { width:100%; border-radius:10px; margin-bottom:15px; }
+.mod-card h3 { color:#00aaff; font-size:24px; margin-bottom:10px; }
+.mod-card p { color:#ccc; font-size:16px; margin-bottom:20px; }
+.mod-card a {
+  background:#00aaff; color:#fff;
+  padding:12px 25px; border-radius:10px;
+  text-decoration:none; font-weight:bold;
+  display:inline-block; transition:0.3s;
+}
+.mod-card a:hover { background:#0088cc; transform:translateY(-3px); }
+
+footer {
+  text-align:center; padding:20px;
+  background:#1a1a1a; border-top:1px solid #2a2a2a; color:#aaa;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <div class="logo">Scott's Transport</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="mods.html">Mods</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="page-header">
+  <h1>Scott's Transport Mods</h1>
+  <p>Your official place to download custom-made ETS2 mods.</p>
+</section>
+
+<section class="mod-section">
+  <div class="mod-grid">
+
+    <!-- No Damage Mod -->
+    <div class="mod-card">
+      <img src="https://i.postimg.cc/kggqKrZn/Mod-Manager-Image.jpg" alt="No Damage Mod">
+      <h3>No Damage Mod (v1.57)</h3>
+      <p>Removes all truck & trailer damage. Updated for ETS2 v1.57.</p>
+      <a href="https://github.com/MyDadsSoft/NoDamageMod/releases/download/1.57/NoDamageMod_1.57.zip">
+        Download
+      </a>
+    </div>
+
+    <!-- Add more mods here -->
+    <div class="mod-card">
+      <img src="https://i.postimg.cc/GtMV9spV/comingsoon.png" alt="More Mods Soon">
+      <h3>More Mods Coming Soon</h3>
+      <p>New custom mods will be added to this page regularly.</p>
+      <a href="#">Stay Tuned</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Scott's Transport VTC. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
