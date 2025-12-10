@@ -3,121 +3,103 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scott's Transports</title>
+<title>Scott's Transports - Christmas Edition</title>
 
 <style>
 /* RESET */
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Arial',sans-serif; }
-body { background:#101010; color:#e0e0e0; line-height:1.6; overflow-x:hidden; }
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; }
+body { background:#0f0f0f; color:#e6e6e6; line-height:1.6; overflow-x:hidden; scroll-behavior:smooth; }
+
+/* CHRISTMAS ACCENT COLORS */
+:root { --accent-red:#D32F2F; --accent-green:#388E3C; }
 
 /* NAVBAR */
-header {
-  width:100%; padding:20px 50px;
-  background:#1a1a1a; position:fixed; top:0; z-index:10;
-  border-bottom:1px solid #2a2a2a;
-}
+header { width:100%; padding:20px 50px; background:rgba(19,19,19,0.6); backdrop-filter:blur(12px); position:fixed; top:0; z-index:10; border-bottom:1px solid rgba(255,255,255,0.05); transition:0.3s; }
+header.scrolled { background:#131313; border-bottom:1px solid #2c2c2c; }
 nav { display:flex; justify-content:space-between; align-items:center; }
-.logo { font-size:28px; font-weight:bold; color:#00aaff; letter-spacing:1px; }
-.nav-links { list-style:none; display:flex; gap:25px; }
-.nav-links a {
-  color:#e0e0e0; text-decoration:none; font-weight:600;
-  padding:5px 0; position:relative; transition:0.3s;
-}
-.nav-links a::after {
-  content:""; position:absolute; width:0%; height:2px; bottom:-3px; left:0;
-  background:#00aaff; transition:0.3s;
-}
+.logo { font-size:26px; font-weight:700; color:var(--accent-red); letter-spacing:1px; }
+.nav-links { list-style:none; display:flex; gap:32px; }
+.nav-links a { color:#e6e6e6; text-decoration:none; font-weight:500; padding:5px 0; position:relative; transition:0.3s; opacity:0.85; }
+.nav-links a:hover { opacity:1; color:var(--accent-green); }
+.nav-links a::after { content:""; position:absolute; width:0%; height:2px; bottom:-3px; left:0; background:var(--accent-red); transition:0.3s; }
 .nav-links a:hover::after { width:100%; }
 
-/* HERO SECTION */
-.hero {
-  height:90vh; padding-top:120px;
-  display:flex; flex-direction:column; justify-content:center; align-items:center;
-  text-align:center;
-  background:linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.85)), 
-             url("https://i.postimg.cc/Qd6HNXPf/eut2-hq-6907ecf6.png") center/cover no-repeat;
+/* HERO */
+.hero { height:92vh; padding-top:120px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
+  background:linear-gradient(to bottom, rgba(15,15,15,0.3), rgba(15,15,15,0.85)), url("https://i.postimg.cc/Qd6HNXPf/eut2-hq-6907ecf6.png") center/cover no-repeat;
+  border-bottom:1px solid #1d1d1d; position:relative; overflow:hidden;
 }
-.hero h1 { font-size:60px; color:#00aaff; margin-bottom:20px; letter-spacing:1px; }
-.hero p { font-size:22px; max-width:700px; color:#fff; margin-bottom:30px; line-height:1.5; }
-.hero .cta-button {
-  background:#00aaff; color:#fff; padding:15px 40px; border-radius:12px;
-  text-decoration:none; font-weight:bold; font-size:18px; transition:0.3s;
-}
-.hero .cta-button:hover { 
-  background:#0088cc; transform:translateY(-2px) rotate(-0.5deg); 
-}
+.hero h1 { font-size:72px; color:var(--accent-red); margin-bottom:22px; letter-spacing:0.5px; font-weight:800; text-shadow:0 4px 25px rgba(0,0,0,0.55); animation:fadeUp 1s ease forwards; }
+.hero p { font-size:22px; max-width:760px; color:#dcdcdc; margin-bottom:35px; line-height:1.55; opacity:0.95; animation:fadeUp 1.2s ease forwards; }
+.hero .cta-button { background:linear-gradient(45deg, var(--accent-red), var(--accent-green)); color:#fff; padding:18px 50px; border-radius:12px; text-decoration:none; font-weight:700; font-size:20px; transition:0.4s; box-shadow:0 8px 22px rgba(0,0,0,0.4); }
+.hero .cta-button:hover { transform:translateY(-4px) scale(1.03); }
+@keyframes fadeUp { from {opacity:0; transform:translateY(50px);} to {opacity:1; transform:translateY(0);} }
 
-/* SECTION HEADINGS */
+/* SECTIONS */
 section { padding:100px 50px; }
-section h2 { font-size:42px; text-align:center; color:#00aaff; margin-bottom:50px; letter-spacing:0.5px; }
+section h2 { font-size:42px; text-align:center; color:var(--accent-red); margin-bottom:60px; letter-spacing:0.5px; font-weight:700; padding-bottom:15px; border-bottom:1px solid #2c2c2c; width:fit-content; margin-left:auto; margin-right:auto; }
+.reveal { opacity:0; transform:translateY(40px); transition:0.8s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
 
 /* ABOUT */
-.about p { max-width:900px; margin:0 auto; text-align:center; font-size:18px; color:#dcdcdc; line-height:1.5; }
+.about p { max-width:900px; margin:0 auto; text-align:center; font-size:18px; color:#cccccc; line-height:1.6; }
 
 /* TEAM */
-.team {
-  background:#111;
-}
-.team .team-cards {
-  display:flex; flex-wrap:wrap; gap:30px; justify-content:center;
-}
-.team-card {
-  width:100%; max-width:260px;
-  background:#1e1e1e; padding:25px 20px; border-radius:12px;
-  box-shadow:0 6px 20px rgba(0,0,0,0.4); text-align:center;
-  transition:0.3s; position:relative;
-}
-.team-card:hover { transform:translateY(-4px); box-shadow:0 12px 25px rgba(0,0,0,0.5); }
-.team-card img {
-  width:120px; height:120px; object-fit:cover; border-radius:50%;
-  margin-bottom:15px; border:2px solid #00aaff;
-}
-.team-card h3 { font-size:22px; color:#00aaff; margin-bottom:5px; }
-.team-card p { font-size:16px; color:#ccc; margin-bottom:5px; }
-.team-card span { font-size:14px; color:#aaa; }
+.team { background:#121212; }
+.team .team-cards { display:flex; flex-wrap:wrap; gap:30px; justify-content:center; }
+.team-card { width:100%; max-width:260px; background:rgba(26,26,26,0.85); backdrop-filter:blur(6px); padding:30px 22px; border-radius:14px; border:1px solid #2c2c2c; text-align:center; transition:0.4s; box-shadow:0 10px 28px rgba(0,0,0,0.4); cursor:pointer; }
+.team-card:hover { transform:translateY(-6px) scale(1.03); border-color:var(--accent-green); box-shadow:0 14px 35px rgba(0,0,0,0.5); }
+.team-card img { width:120px; height:120px; object-fit:cover; border-radius:50%; margin-bottom:15px; border:2px solid var(--accent-red); }
+.team-card h3 { font-size:20px; color:var(--accent-green); margin-bottom:5px; font-weight:600; }
+.team-card p { font-size:15px; color:#b5b5b5; margin-bottom:5px; }
+.team-card span { font-size:14px; color:#7a7a7a; }
 
 /* FLEET */
-.fleet .truck-gallery {
-  display:flex; flex-wrap:wrap; gap:30px; justify-content:center;
-}
-.truck-card {
-  width:100%; max-width:300px;
-  background:#1e1e1e; padding:20px; border-radius:12px;
-  box-shadow:0 6px 20px rgba(0,0,0,0.4); text-align:center;
-  transition:0.3s;
-}
-.truck-card:hover { transform:translateY(-4px) rotate(-0.5deg); box-shadow:0 10px 30px rgba(0,0,0,0.5); }
-.truck-card img { width:100%; border-radius:8px; margin-bottom:15px; }
-.truck-card h3 { font-size:20px; color:#00aaff; }
+.fleet .truck-gallery { display:flex; flex-wrap:wrap; gap:30px; justify-content:center; }
+.truck-card { width:100%; max-width:300px; background:rgba(26,26,26,0.85); backdrop-filter:blur(6px); padding:25px; border-radius:14px; border:1px solid #2c2c2c; text-align:center; transition:0.4s; box-shadow:0 10px 28px rgba(0,0,0,0.4); cursor:pointer; }
+.truck-card:hover { transform:translateY(-5px) scale(1.02); border-color:var(--accent-red); box-shadow:0 14px 35px rgba(0,0,0,0.5); }
+.truck-card img { width:100%; border-radius:10px; margin-bottom:15px; }
+.truck-card h3 { font-size:20px; color:var(--accent-green); }
 
 /* APPLY */
-.apply-info { text-align:center; max-width:750px; margin:0 auto 30px; font-size:18px; line-height:1.5; }
+.apply-info { text-align:center; max-width:750px; margin:0 auto 30px; font-size:18px; line-height:1.6; color:#cccccc; }
 .apply-buttons { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; }
-.apply-button {
-  background:#00aaff; color:#fff; padding:12px 30px; border-radius:10px;
-  text-decoration:none; font-weight:bold; transition:0.3s;
-}
-.apply-button:hover { background:#0088cc; transform:translateY(-2px) rotate(-0.5deg); }
-.discord-required { text-align:center; color:#ff5555; font-weight:bold; margin-top:15px; font-size:16px; }
+.apply-button { background:linear-gradient(45deg, var(--accent-red), var(--accent-green)); color:#fff; padding:14px 34px; border-radius:12px; text-decoration:none; font-weight:700; transition:0.4s; box-shadow:0 6px 20px rgba(0,0,0,0.3); }
+.apply-button:hover { transform:translateY(-3px) scale(1.04); }
+.discord-required { text-align:center; color:#d9534f; font-weight:600; margin-top:15px; font-size:16px; }
 
 /* CONTACT */
 .contact { text-align:center; }
 .contact p { margin:10px 0; font-size:18px; }
-.contact .button {
-  background:#5865F2; color:#fff; padding:12px 25px; border-radius:8px; text-decoration:none;
-  transition:0.3s; display:inline-block; font-weight:bold;
-}
-.contact .button:hover { background:#4752c4; transform:translateY(-2px) rotate(-0.5deg); }
+.contact .button { background:linear-gradient(45deg, var(--accent-red), var(--accent-green)); color:#fff; padding:12px 25px; border-radius:10px; text-decoration:none; transition:0.3s; display:inline-block; font-weight:600; border:1px solid #ff9b6e; }
+.contact .button:hover { transform:translateY(-2px); }
 
 /* FOOTER */
-footer { text-align:center; padding:25px; background:#1a1a1a; border-top:1px solid #2a2a2a; color:#aaa; font-size:14px; }
+footer { text-align:center; padding:50px 20px; background:#131313; border-top:1px solid #2a2a2a; color:#8a8a8a; font-size:14px; margin-top:60px; }
+footer p { opacity:0.9; letter-spacing:0.3px; }
+
+/* SNOW ANIMATION */
+.snowflake {
+  position: fixed;
+  top: -10px;
+  color: #fff;
+  font-size: 1em;
+  user-select: none;
+  pointer-events: none;
+  z-index: 9999;
+  animation: fall 10s linear infinite;
+}
+@keyframes fall {
+  0% { transform: translateY(0) translateX(0); opacity:1; }
+  100% { transform: translateY(100vh) translateX(20px); opacity:0.8; }
+}
 
 /* RESPONSIVE */
 @media(max-width:768px) {
-  .hero h1 { font-size:42px; }
+  .hero h1 { font-size:48px; }
   .hero p { font-size:18px; }
   .apply-buttons a { width:90%; text-align:center; }
-  .team .team-cards { flex-direction:column; align-items:center; }
+  .team .team-cards, .fleet .truck-gallery { flex-direction:column; align-items:center; }
 }
 </style>
 </head>
@@ -126,7 +108,7 @@ footer { text-align:center; padding:25px; background:#1a1a1a; border-top:1px sol
 
 <header>
   <nav>
-    <div class="logo">Scott's Transports</div>
+    <div class="logo">Scott's Transports 🎄</div>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
@@ -141,140 +123,86 @@ footer { text-align:center; padding:25px; background:#1a1a1a; border-top:1px sol
 </header>
 
 <!-- HERO -->
-<section id="home" class="hero">
-  <h1>Scott's Transports</h1>
+<section id="home" class="hero reveal">
+  <h1>Scott's Transports 🎅</h1>
   <p>We drive hard, focus on professionalism, and provide a structured environment for our drivers. No fluff, just quality virtual trucking.</p>
-  <a href="#apply" class="cta-button">Apply  Today</a>
+  <a href="#apply" class="cta-button">Apply Today 🎁</a>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="about">
+<section id="about" class="about reveal">
   <h2>About Scott's Transports</h2>
-  <p>
-    Scott's Transports is a professional Virtual Trucking Company focused on teamwork, realistic trucking experiences, and a supportive community.  
-    We have clear rules to ensure a safe and fair environment for all drivers, and we encourage everyone to improve their skills in ETS2 while enjoying the game.  
-    If you want a serious, well-managed VTC with room to grow, you’ve come to the right place.
-  </p>
+  <p>Scott's Transports is a professional Virtual Trucking Company focused on teamwork, realistic trucking experiences, and a supportive community. We have clear rules to ensure a safe and fair environment for all drivers, and we encourage everyone to improve their skills in ETS2 while enjoying the game. If you want a serious, well-managed VTC with room to grow, you’ve come to the right place.</p>
 </section>
 
 <!-- TEAM -->
-<section id="team" class="team">
+<section id="team" class="team reveal">
   <h2>Meet the Crew</h2>
   <div class="team-cards">
-
     <div class="team-card">
       <img src="https://cdn.discordapp.com/avatars/805155042566209557/a35ae90c9230dbe6b1d2dd083a95ae89?size=1024" alt="MyDadsSoft">
       <h3>MyDadsSoft</h3>
       <p>Owner — zero filter, full chaos</p>
       <span>“We do what we want, don’t ask questions.”</span>
     </div>
-
     <div class="team-card">
       <img src="https://cdn.discordapp.com/avatars/1054859927237169233/50b930cc54b615ebb37ba8dd1a0351c1?size=1024" alt="truckerdonky">
       <h3>truckerdonky</h3>
       <p>Co-Owner — ragebaited on the daily</p>
       <span>“Why does this keep happening?!”</span>
     </div>
-
     <div class="team-card">
       <img src="https://cdn.discordapp.com/avatars/241637900297437184/a_b39fb633df8a654527141fc8c744bac8?size=1024" alt="vaselineeontoast">
       <h3>vaselineeontoast</h3>
       <p>Manager — permanently stoned, somehow functional</p>
       <span>“Uh… yeah, that’s cool, man.”</span>
     </div>
-
     <div class="team-card">
       <img src="https://cdn.discordapp.com/avatars/1295842100037816332/521171ac26abdd3f7503923e4ff630cb?size=1024" alt="Rybo">
       <h3>Rybo</h3>
       <p>Manager — ETS2 editor & bug abuser</p>
       <span>“I make the trucks do things they shouldn’t.”</span>
     </div>
-
   </div>
 </section>
 
 <!-- FLEET -->
-<section id="fleet" class="fleet">
+<section id="fleet" class="fleet reveal">
   <h2>Our Fleet</h2>
   <div class="truck-gallery">
-    <div class="truck-card">
-      <img src="https://i.ibb.co/XZwRbqpM/Truck2.png" alt="Scania R730">
-      <h3>Scania R730</h3>
-    </div>
-    <div class="truck-card">
-      <img src="https://i.ibb.co/SXg8pRH2/Truck4.png" alt="Scania S520">
-      <h3>Scania S520</h3>
-    </div>
-    <div class="truck-card">
-      <img src="https://i.ibb.co/czsSvhg/Truck3.png" alt="Scania S560 Timber">
-      <h3>Scania S560 Timber</h3>
-    </div>
-    <div class="truck-card">
-      <img src="https://i.ibb.co/gbxNk7JF/Truck1.png" alt="Volvo FH5">
-      <h3>Volvo FH5 Globetrotter</h3>
-    </div>
-    <div class="truck-card">
-      <img src="https://i.ibb.co/j9Ryd61X/Truck5.png" alt="Scania S580">
-      <h3>Scania S580</h3>
-    </div>
+    <div class="truck-card"><img src="https://i.ibb.co/XZwRbqpM/Truck2.png" alt="Scania R730"><h3>Scania R730</h3></div>
+    <div class="truck-card"><img src="https://i.ibb.co/SXg8pRH2/Truck4.png" alt="Scania S520"><h3>Scania S520</h3></div>
+    <div class="truck-card"><img src="https://i.ibb.co/czsSvhg/Truck3.png" alt="Scania S560 Timber"><h3>Scania S560 Timber</h3></div>
+    <div class="truck-card"><img src="https://i.ibb.co/gbxNk7JF/Truck1.png" alt="Volvo FH5"><h3>Volvo FH5 Globetrotter</h3></div>
+    <div class="truck-card"><img src="https://i.ibb.co/j9Ryd61X/Truck5.png" alt="Scania S580"><h3>Scania S580</h3></div>
+     <div class="truck-card"><img src="https://i.postimg.cc/vZj7J1Vf/image.png" alt="Quarry Service"><h3>Quarry Service</h3></div>
   </div>
 </section>
 
 <!-- TRAINEE FLEET -->
-<section id="trainee-fleet" class="fleet">
+<section id="trainee-fleet" class="fleet reveal">
   <h2>Trainee Fleet</h2>
   <div class="truck-gallery">
-    <div class="truck-card">
-      <img src="https://i.postimg.cc/SR59gszH/ets2-20251026-152833-00.png" alt="Daf XG 2021">
-      <h3>Daf XG 2021</h3>
-    </div>
-    <div class="truck-card">
-      <img src="https://i.postimg.cc/Rhqf1fqX/eut2_hq_68fe3d84.png" alt="Iveco Sway">
-      <h3>Iveco Sway</h3>
-    </div>
-    <div class="truck-card">
-      <img src="https://i.postimg.cc/vHgfcWpC/eut2_hq_68fe3e7d.png" alt="Mercedes Actros Giga">
-      <h3>Mercedes Actros Giga</h3>
-    </div>
+    <div class="truck-card"><img src="https://i.postimg.cc/SR59gszH/ets2-20251026-152833-00.png" alt="Daf XG 2021"><h3>Daf XG 2021</h3></div>
+    <div class="truck-card"><img src="https://i.postimg.cc/Rhqf1fqX/eut2_hq_68fe3d84.png" alt="Iveco Sway"><h3>Iveco Sway</h3></div>
+    <div class="truck-card"><img src="https://i.postimg.cc/vHgfcWpC/eut2_hq_68fe3e7d.png" alt="Mercedes Actros Giga"><h3>Mercedes Actros Giga</h3></div>
   </div>
 </section>
 
 <!-- APPLY -->
-<section id="apply">
+<section id="apply" class="reveal">
   <h2>Join Scott's Transports</h2>
-  <p class="apply-info">
-    To join Scott's Transports, you must first apply on our Discord to get the Trainee role.  
-    After that, you can submit your application on Trucky or TrucksBook to have your miles tracked in the company.
-  </p>
-
+  <p class="apply-info">To join Scott's Transports, you must first apply on our Discord to get the Trainee role. After that, you can submit your application on Trucky or TrucksBook to have your miles tracked in the company.</p>
   <div class="apply-buttons">
     <a class="apply-button" href="https://discord.gg/vTJhwhSs8Z" target="_blank">Apply on Discord (Trainee Role)</a>
     <a class="apply-button" href="https://hub.truckyapp.com/company/33844" target="_blank">Apply on Trucky (Mileage Tracking)</a>
     <a class="apply-button" href="https://trucksbook.eu/company/215165" target="_blank">Apply on TrucksBook (Mileage Tracking)</a>
   </div>
-
   <p class="discord-required">⚠ You must apply on Discord first before applying on Trucky or TrucksBook.</p>
 </section>
 
-
-
-<script>
-  const discordBtn = document.getElementById('discord-button');
-  const truckyBtn = document.getElementById('trucky-button');
-  const trucksbookBtn = document.getElementById('trucksbook-button');
-
-  discordBtn.addEventListener('click', () => {
-    truckyBtn.style.opacity = '1';
-    truckyBtn.style.pointerEvents = 'auto';
-    trucksbookBtn.style.opacity = '1';
-    trucksbookBtn.style.pointerEvents = 'auto';
-    truckyBtn.textContent = 'Apply on Trucky';
-    trucksbookBtn.textContent = 'Apply on TrucksBook';
-  });
-</script>
-
 <!-- CONTACT -->
-<section id="contact" class="contact">
+<section id="contact" class="contact reveal">
   <h2>Contact Us</h2>
   <p>Email:</p>
   <a href="mailto:ifruitapp666@outlook.com" class="button">Send Email</a>
@@ -283,10 +211,33 @@ footer { text-align:center; padding:25px; background:#1a1a1a; border-top:1px sol
 </section>
 
 <footer>
-  <p>© 2025 Scott's Transports VTC — serious, structured, and professional.</p>
+  <p>© 2025 Scott's Transports VTC — 🎄 Happy Holidays! 🎄</p>
 </footer>
+
+<script>
+// Scroll reveal animations
+window.addEventListener('scroll', () => {
+  document.querySelectorAll('.reveal').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 80) el.classList.add('visible');
+  });
+
+  const header = document.querySelector('header');
+  if (window.scrollY > 60) header.classList.add('scrolled');
+  else header.classList.remove('scrolled');
+});
+
+// Snowflakes
+for(let i=0;i<50;i++){
+  let snow = document.createElement('div');
+  snow.className='snowflake';
+  snow.style.left=Math.random()*100+'%';
+  snow.style.fontSize=(Math.random()*10+10)+'px';
+  snow.textContent='❄';
+  snow.style.animationDuration=(5+Math.random()*5)+'s';
+  document.body.appendChild(snow);
+}
+</script>
 
 </body>
 </html>
-
-
