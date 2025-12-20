@@ -6,81 +6,228 @@
 <title>TruckersMP DLC Bypass</title>
 
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Arial',sans-serif; }
-body { background:#0f0f0f; color:#f0f0f0; line-height:1.6; scroll-behavior:smooth; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", Arial, sans-serif;
+}
 
-/* COLORS */
-:root { --main-red:#D32F2F; --main-green:#388E3C; }
+:root {
+  --red: #e53935;
+  --green: #43a047;
+  --bg: #0b0b0b;
+  --card: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.12);
+  --text-muted: #bdbdbd;
+}
+
+body {
+  background: radial-gradient(circle at top, #141414, #050505);
+  color: #f5f5f5;
+  line-height: 1.7;
+}
 
 /* HEADER */
 header {
-  width:100%; padding:20px 50px;
-  background:#1a1a1a; position:fixed; top:0;
-  border-bottom:2px solid var(--main-red); z-index:10;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  background: rgba(10, 10, 10, 0.75);
+  border-bottom: 1px solid var(--border);
 }
-nav { display:flex; justify-content:space-between; align-items:center; }
-.logo { font-size:28px; color:var(--main-red); font-weight:bold; }
-.nav-links { display:flex; gap:25px; list-style:none; }
+
+nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 900;
+  background: linear-gradient(45deg, var(--red), var(--green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
 .nav-links a {
-  color:#f0f0f0; text-decoration:none; font-weight:600; position:relative;
+  color: #eee;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
 }
+
 .nav-links a::after {
-  content:""; position:absolute; width:0%; height:2px; bottom:-3px; left:0;
-  background:var(--main-red); transition:0.3s;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(45deg, var(--red), var(--green));
+  transition: 0.3s;
 }
-.nav-links a:hover::after { width:100%; }
 
-/* PAGE HEADER */
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* HERO */
 .page-header {
-  padding-top:140px;
-  text-align:center;
-  padding-bottom:40px;
-}
-.page-header h1 { font-size:60px; color:var(--main-red); }
-.page-header p { font-size:20px; color:#ccc; }
-
-/* CONTENT SECTION */
-.content-section { padding:50px 50px; }
-.content {
-  max-width: 900px;
-  margin: 0 auto;
+  padding-top: 170px;
+  padding-bottom: 90px;
   text-align: center;
 }
-.content h2 { font-size:36px; color:var(--main-green); margin-bottom:20px; }
-.content p { font-size:18px; color:#ccc; margin-bottom:30px; }
-.content a {
-  background:linear-gradient(45deg, var(--main-red), var(--main-green));
-  color:#fff;
-  padding:12px 25px; border-radius:10px;
-  text-decoration:none; font-weight:bold;
-  display:inline-block; transition:0.3s;
+
+.page-header h1 {
+  font-size: clamp(44px, 6vw, 66px);
+  font-weight: 900;
+  background: linear-gradient(45deg, var(--red), var(--green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-.content a:hover { background:var(--main-red); transform:translateY(-3px); }
+
+.page-header p {
+  max-width: 750px;
+  margin: 20px auto 0;
+  font-size: 20px;
+  color: var(--text-muted);
+}
+
+/* CONTENT */
+.content-section {
+  padding: 0 30px 90px;
+}
+
+.content {
+  max-width: 920px;
+  margin: auto;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 55px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+}
+
+.content h2 {
+  font-size: 36px;
+  margin-bottom: 15px;
+  color: var(--green);
+}
+
+.content h3 {
+  margin-top: 45px;
+  margin-bottom: 15px;
+  font-size: 24px;
+  color: var(--red);
+}
+
+.content p {
+  font-size: 18px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+/* NOTICE */
+.notice {
+  margin-top: 35px;
+  padding: 22px;
+  border-radius: 16px;
+  background: rgba(255, 87, 34, 0.1);
+  border: 1px solid rgba(255, 87, 34, 0.45);
+  color: #ffab91;
+  font-size: 16px;
+}
+
+/* FEATURES */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+  margin-top: 25px;
+}
+
+.feature {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.feature:hover {
+  transform: translateY(-6px);
+  border-color: var(--green);
+}
+
+.feature span {
+  font-size: 30px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* BUTTON */
+.content a {
+  margin-top: 20px;
+  display: inline-block;
+  background: linear-gradient(45deg, var(--red), var(--green));
+  color: #fff;
+  padding: 14px 34px;
+  border-radius: 16px;
+  text-decoration: none;
+  font-weight: 800;
+  transition: 0.3s;
+}
+
+.content a:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
 
 /* FOOTER */
 footer {
-  text-align:center; padding:20px;
-  background:#1a1a1a; border-top:2px solid var(--main-red); color:#aaa;
+  text-align: center;
+  padding: 30px;
+  color: #888;
+  border-top: 1px solid var(--border);
+  background: #0a0a0a;
 }
 
-/* SNOW ANIMATION */
+/* SNOW */
 .snowflake {
   position: fixed;
   top: -10px;
   color: #fff;
-  font-size: 1em;
-  user-select: none;
   pointer-events: none;
-  z-index: 9999;
   animation: fall linear infinite;
 }
+
 @keyframes fall {
-  0% { transform: translateY(0) translateX(0); opacity:1; }
-  100% { transform: translateY(100vh) translateX(20px); opacity:0.8; }
+  to {
+    transform: translateY(110vh) translateX(30px);
+    opacity: 0.7;
+  }
 }
 
-/* RESPONSIVE */
-@media(max-width:768px) { .content { max-width:90%; } }
+@media (max-width: 768px) {
+  .content {
+    padding: 35px;
+  }
+}
 </style>
 </head>
 
@@ -90,54 +237,84 @@ footer {
   <nav>
     <div class="logo">TruckersMP DLC Bypass</div>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="dlc-bypass.html">DLC Bypass</a></li>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Download</a></li>
     </ul>
   </nav>
 </header>
 
 <section class="page-header">
   <h1>TruckersMP DLC Bypass</h1>
-  <p>Get around the limitations of TruckersMP DLCs with this easy-to-use bypass tool.</p>
+  <p>
+    Unlock access to DLC content in TruckersMP and enjoy a more complete
+    multiplayer experience.
+  </p>
 </section>
 
 <section class="content-section">
   <div class="content">
-    <h2>What is the TruckersMP DLC Bypass?</h2>
-    <p>The TruckersMP DLC Bypass allows you to bypass the requirement of purchasing DLCs on TruckersMP. This tool enables you to use certain DLC content without owning them, for a more complete and enjoyable gameplay experience.</p>
-    
-    <h3>How to Use</h3>
-    <p>To get started, simply follow the instructions on the official GitHub page linked below. The tool is easy to use and comes with installation instructions to get you up and running quickly.</p>
-    
-    <a href="https://github.com/Baldywaldy09/TruckersMP-DLC-Bypass" target="_blank">Visit GitHub Repository</a>
-    
-    <h3>Features</h3>
-    <ul>
-      <li>Bypass DLC requirements for TruckersMP</li>
-      <li>Works with multiple DLCs</li>
-      <li>Easy-to-follow installation guide</li>
-    </ul>
-    
-    <p>Get your TruckersMP experience enhanced and enjoy the full DLC content with no extra cost!</p>
 
+    <h2>About</h2>
+    <p>
+      TruckersMP DLC Bypass is designed to allow players to use DLC-related
+      content in multiplayer environments with fewer restrictions.
+    </p>
+
+    <div class="notice">
+      <strong>⚠ Use at Your Own Risk</strong><br><br>
+      Using third-party tools may carry risks including account restrictions.
+      You are responsible for how you use this software.
+    </div>
+
+    <h3>Features</h3>
+    <div class="features">
+      <div class="feature">
+        <span>🚛</span>
+        DLC access support
+      </div>
+      <div class="feature">
+        <span>🔓</span>
+        Multiplayer compatibility
+      </div>
+      <div class="feature">
+        <span>⚡</span>
+        Simple setup
+      </div>
+    </div>
+
+    <h3>Source Code</h3>
+    <p>
+      The project source code is available below.
+    </p>
+
+    <a href="https://github.com/Baldywaldy09/TruckersMP-DLC-Bypass" target="_blank">
+      View GitHub Repository
+    </a>
+
+    <a href="https://modsfire.com/F9Wot77ZBBlq481#google_vignette" target="_blank">
+      Cracked Dlc's Here
+    </a>
+    
     <h3>Credits</h3>
-    <p>This tool was created by <strong>Baldy09</strong> — a talented developer and good friend. Huge thanks to Baldy09 for his hard work and dedication in making this DLC Bypass possible!</p>
+    <p>
+      Created by <strong>Baldy09</strong>. Respect to the developer behind the project.
+    </p>
+
   </div>
 </section>
 
 <footer>
-  <p>© 2025 TruckersMP DLC Bypass</p>
+  <p>© 2025 • TruckersMP DLC Bypass</p>
 </footer>
 
 <script>
-// Snowflakes
-for(let i=0;i<50;i++){
-  let snow = document.createElement('div');
-  snow.className='snowflake';
-  snow.style.left=Math.random()*100+'%';
-  snow.style.fontSize=(Math.random()*10+10)+'px';
-  snow.textContent='❄';
-  snow.style.animationDuration=(5+Math.random()*5)+'s';
+for (let i = 0; i < 35; i++) {
+  const snow = document.createElement("div");
+  snow.className = "snowflake";
+  snow.style.left = Math.random() * 100 + "%";
+  snow.style.fontSize = Math.random() * 10 + 12 + "px";
+  snow.textContent = "❄";
+  snow.style.animationDuration = 5 + Math.random() * 6 + "s";
   document.body.appendChild(snow);
 }
 </script>
